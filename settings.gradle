@@ -1,0 +1,1 @@
+include ':app', ':CameraSurfaceView01', ':GPUImageDemo', ':Camera2TextureView', ':QRCode', ':zxing', ':QRCode02', ':PendantCamera01', ':PendantCamera02'
