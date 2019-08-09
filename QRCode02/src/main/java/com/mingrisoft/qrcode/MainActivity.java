@@ -1,6 +1,7 @@
 package com.mingrisoft.qrcode;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -33,6 +34,7 @@ public class MainActivity extends MPermissionsActivity implements TakePhoto.onPi
     private LinearLayout linearLayout;//用来拦截edittext的焦点
     private TakePhoto takePhoto;//用来获取图片
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +106,8 @@ public class MainActivity extends MPermissionsActivity implements TakePhoto.onPi
         //获取logo资源
         Bitmap logoBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.mrkj);
         //生成二维码
-        Bitmap codeBitmap = EncodingUtils.createQRCode("http://www.mingrisoft.com/",500,500,logoBitmap);
+//        Bitmap codeBitmap = EncodingUtils.createQRCode("http://www.mingrisoft.com/",500,500,logoBitmap);
+        Bitmap codeBitmap = EncodingUtils.createQRCode(editText.getText().toString(),500,500,logoBitmap);
         enCodeImage2.setImageBitmap(codeBitmap);//显示二维码
     }
 
@@ -134,7 +137,8 @@ public class MainActivity extends MPermissionsActivity implements TakePhoto.onPi
         //获取logo资源
         Bitmap logoBitmap = BitmapFactory.decodeFile(path);
         //生成二维码
-        Bitmap codeBitmap = EncodingUtils.createQRCode("http://www.mingrisoft.com/",500,500,logoBitmap);
+//        Bitmap codeBitmap = EncodingUtils.createQRCode("http://www.mingrisoft.com/",500,500,logoBitmap);
+        Bitmap codeBitmap = EncodingUtils.createQRCode(editText.getText().toString(),500,500,logoBitmap);
         enCodeImage2.setImageBitmap(codeBitmap);//显示二维码
     }
 }
